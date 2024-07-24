@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqhg2o28gjxw8"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_hlya8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d8rug"]
+bounce = 0.25
+
+[sub_resource type="SphereMesh" id="SphereMesh_ilu1d"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bndqq"]
+radius = 0.05
+
+[node name="Ball" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_d8rug")
+linear_damp = 0.5
+angular_damp = 1.0
+script = ExtResource("1_hlya8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ilu1d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bndqq")
